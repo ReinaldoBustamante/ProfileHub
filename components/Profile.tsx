@@ -12,13 +12,14 @@ interface ProfileProps {
 export const Profile = ({ url, name, login, location }: ProfileProps) => {
     return (
         <div className="flex gap-4 items-center">
-            <div className="w-[130px] h-[130px] border-[2px] border-[#76BBFF] rounded-[50%]">
+            <div className="border-[4px] border-[#76BBFF] rounded-[50%]">
                 <Image
                     src={url}
                     className='rounded-[50%]'
                     alt="Description"
                     width={130}
                     height={130}
+                    priority
                 />
             </div>
             <div className="flex flex-col ">
