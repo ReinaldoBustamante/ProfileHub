@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export const GET = async (req: Request) => {
     const { searchParams } = new URL(req.url);
     const username = searchParams.get("username");
 
@@ -9,19 +9,19 @@ export async function GET(req: Request) {
     }
 
     try {
-        const response = await fetch(`https://api.github.com/users/${username}`, {cache: 'force-cache'});
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=created&direction=desc`, {cache: 'force-cache'});
         if (!response.ok) {
             return NextResponse.json({ error: "User not found" }, { status: 404 });
         }
-        const profile = await response.json();
+        const repos = await response.json();
         const rateResponse = await fetch("https://api.github.com/rate_limit")
         const { rate } = await rateResponse.json()
         
         return NextResponse.json({
-            data: profile,
-            rate
+            data: repos.slice(0, 10),
+            rate_limit: rate
         });
     } catch (error) {
-        return NextResponse.json({ error }, { status: 500 });
+        return NextResponse.json({ error: (error as Error).message }, { status: 500 });
     }
-}
+};
