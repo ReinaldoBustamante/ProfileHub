@@ -30,7 +30,7 @@ export const GET = async (req: Request) => {
     const { rate } = await rateResponse.json()
   
     return NextResponse.json({
-      languageCount,
+      data: languageCount,
       rate_limit: rate
     });
   } catch (error) {
