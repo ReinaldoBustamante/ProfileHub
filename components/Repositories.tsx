@@ -1,8 +1,8 @@
 "use client"
-import { Repository } from '@/interface/repository'
+import { RepositoryType } from '@/interface/repository'
 import React, { useEffect, useMemo, useState } from 'react'
 
-export const Repositories = ({ languages, repos }: { languages: string[], repos: Repository[] }) => {
+export const Repositories = ({ languages, repos }: { languages: string[], repos: RepositoryType[] }) => {
     const [languageSelected, setLanguageSelected] = useState('')
     const repositories = useMemo(() => {
         if (languageSelected === 'Undefined') {
@@ -34,11 +34,11 @@ export const Repositories = ({ languages, repos }: { languages: string[], repos:
         setButtons([...Array(totalPages).keys()].map(i => i + 1));
     }, [repositories]);
     
-    const handlePagination = (e: any) => {
+    const handlePagination = (value: number) => {
         setPagination((prev) => ({
             ...prev,
-            startCursor: (e.target.value - 1) * 5,
-            endCursor: (e.target.value) * 5
+            startCursor: (value - 1) * 5,
+            endCursor: (value) * 5
         }))
     }
 
@@ -72,7 +72,7 @@ export const Repositories = ({ languages, repos }: { languages: string[], repos:
                 </div>
                 <div className="flex gap-2 items-center justify-center mt-2">
                     {
-                        buttons.map(button => <button key={button} className='px-3 py-1 bg-[#76BBFF] text-white rounded' onClick={handlePagination} value={button}>{button}</button>)
+                        buttons.map(button => <button key={button} className='px-3 py-1 bg-[#76BBFF] text-white rounded' onClick={(e) => handlePagination(Number((e.target as HTMLButtonElement).value))} value={button}>{button}</button>)
                     }
                 </div>
             </div>

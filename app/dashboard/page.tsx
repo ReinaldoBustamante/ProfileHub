@@ -4,6 +4,8 @@ import { PieChart } from '@/components/PieChart';
 import { Profile } from '@/components/Profile';
 import { ProfileStats } from '@/components/ProfileStats';
 import { Repositories } from '@/components/Repositories';
+import { ProfileType } from '@/interface/profile';
+import { RepositoryType } from '@/interface/repository';
 import { getLanguages } from '@/utils/getLanguages';
 import { getLimit } from '@/utils/getLimit';
 import { getProfile } from '@/utils/getProfile';
@@ -14,9 +16,9 @@ export default async function DashboardPage({ ...params }) {
     const { searchParams } = params
     const { username } = await searchParams
 
-    const profile = await getProfile(username)
+    const profile: ProfileType = await getProfile(username)
     const languages = await getLanguages(username)
-    const repos = await getRepositories(username)
+    const repos: RepositoryType[] = await getRepositories(username)
     const rateLimit = await getLimit()
     
 
