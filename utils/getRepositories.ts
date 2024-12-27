@@ -1,5 +1,6 @@
 export const getRepositories = async(username: string) => {
-    const reposResponse = await fetch(`http://localhost:3000/api/repos?username=${username}`)
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const reposResponse = await fetch(`${apiUrl}/repos?username=${username}`)
     const userRepositories = await reposResponse.json()
     return userRepositories
 }
