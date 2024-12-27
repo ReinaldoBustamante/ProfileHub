@@ -4,7 +4,7 @@ import { usePagination } from '@/hooks/usePagination'
 import { RepositoryType } from '@/interface/repository'
 import { Select } from '../Select'
 import { RepositoriesList } from './RepositoriesList'
-import { PaginationButtons } from './paginationButtons'
+import { PaginationButtons } from './PaginationButtons'
 
 export const Repositories = ({ languages, repos }: { languages: string[], repos: RepositoryType[] }) => {
  
