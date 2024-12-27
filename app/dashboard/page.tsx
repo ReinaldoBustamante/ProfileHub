@@ -1,9 +1,9 @@
 
 import { Header } from '@/components/Header';
-import { PieChart } from '@/components/PieChart';
-import { Profile } from '@/components/Profile';
-import { ProfileStats } from '@/components/ProfileStats';
-import { Repositories } from '@/components/Repositories';
+import { PieChart } from '@/components/charts/PieChart';
+import { Profile } from '@/components/userProfile/Profile';
+import { ProfileStats } from '@/components/userProfile/ProfileStats';
+import { Repositories } from '@/components/repositories/Repositories';
 import { ProfileType } from '@/interface/profile';
 import { RepositoryType } from '@/interface/repository';
 import { getLanguages } from '@/utils/getLanguages';
