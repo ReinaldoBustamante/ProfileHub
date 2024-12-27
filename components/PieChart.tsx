@@ -9,7 +9,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const PieChart = ({ languages }: { languages: { [key: string]: number } }) => {
     const backgroundColors = getColors(Object.keys(languages))
-    console.log(backgroundColors)
     const data = {
         labels: Object.keys(languages),
         datasets: [

@@ -19,20 +19,13 @@ export const GET = async (req: Request) => {
     }
     const repos: Repository[] = await response.json();
    
-    const languages = repos.map(repo => repo.language || "No definido");
+    const languages = repos.map(repo => repo.language || "Undefined");
     
     const languageCount: Record<string, number> = {};
     languages.forEach((language: string) => {
       languageCount[language] = (languageCount[language] || 0) + 1;
     });
-
-    const rateResponse = await fetch("https://api.github.com/rate_limit")
-    const { rate } = await rateResponse.json()
-  
-    return NextResponse.json({
-      data: languageCount,
-      rate_limit: rate
-    });
+    return NextResponse.json(languageCount);
   } catch (error) {
     return NextResponse.json({ error: (error as Error).message }, { status: 500 });
   }

@@ -13,14 +13,8 @@ export const GET = async (req: Request) => {
         if (!response.ok) {
             return NextResponse.json({ error: "User not found" }, { status: 404 });
         }
-        const repos = await response.json();
-        const rateResponse = await fetch("https://api.github.com/rate_limit")
-        const { rate } = await rateResponse.json()
-        
-        return NextResponse.json({
-            data: repos.slice(0, 10),
-            rate_limit: rate
-        });
+        const repos = await response.json();        
+        return NextResponse.json(repos);
     } catch (error) {
         return NextResponse.json({ error: (error as Error).message }, { status: 500 });
     }

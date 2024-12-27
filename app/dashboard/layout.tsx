@@ -15,7 +15,7 @@ export default function DashboardLayout({
                 height={500} 
                 className='absolute z-1'
             />
-            <div className="relative z-2 py-4 px-8 w-screen h-screen">
+            <div className="relative z-2 w-screen h-screen">
              {children}
             </div>
         </div>
