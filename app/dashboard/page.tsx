@@ -11,16 +11,19 @@ import { getLimit } from '@/utils/getLimit';
 import { getProfile } from '@/utils/getProfile';
 import { getRepositories } from '@/utils/getRepositories';
 
-export default async function DashboardPage({ ...params }) {
 
-    const { searchParams } = params
+interface DashboardPageProps {
+    searchParams: Promise<{ username: string }>
+}
+export default async function DashboardPage({ searchParams }: DashboardPageProps) {
+
     const { username } = await searchParams
 
     const profile: ProfileType = await getProfile(username)
     const languages = await getLanguages(username)
     const repos: RepositoryType[] = await getRepositories(username)
     const rateLimit = await getLimit()
-    
+
 
     return (
         <div className="flex flex-col">

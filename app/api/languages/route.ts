@@ -1,5 +1,5 @@
 
-import { Repository } from "@/interface/repository";
+import { RepositoryType } from "@/interface/repository";
 import { NextResponse } from "next/server";
 
 export const GET = async (req: Request) => {
@@ -17,7 +17,7 @@ export const GET = async (req: Request) => {
     if (!response.ok) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
-    const repos: Repository[] = await response.json();
+    const repos: RepositoryType[] = await response.json();
    
     const languages = repos.map(repo => repo.language || "Undefined");
     
