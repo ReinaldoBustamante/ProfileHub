@@ -18,8 +18,8 @@ interface DashboardPageProps {
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
 
     const { username } = await searchParams
-
     const profile: ProfileType = await getProfile(username)
+    if(profile.error) throw new Error('User not found')
     const languages = await getLanguages(username)
     const repos: RepositoryType[] = await getRepositories(username)
     const rateLimit = await getLimit()
