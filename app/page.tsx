@@ -2,7 +2,7 @@ import { Form } from '@/components/Form';
 import Image from 'next/image'
 export default function oHme() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen gap-2">
+    <div className="flex flex-col items-center justify-center w-screen h-svh md:h-screen gap-2">
       <Image
         src="/github.svg"
         alt="Description"

@@ -18,12 +18,13 @@ interface DashboardPageProps {
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
 
     const { username } = await searchParams
+    const rateLimit = await getLimit()
+    if(rateLimit.remaining === 0) throw new Error('Too many attempts, please try again later')
     const profile: ProfileType = await getProfile(username)
     if(profile.error) throw new Error('User not found')
     const languages = await getLanguages(username)
     const repos: RepositoryType[] = await getRepositories(username)
-    const rateLimit = await getLimit()
-
+    
 
     return (
         <div className="flex flex-col">
