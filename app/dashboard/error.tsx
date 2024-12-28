@@ -4,7 +4,6 @@ interface ErrorPageProps {
 }
 
 export default function ErrorPage({ error }: ErrorPageProps) {
-    console.log(error)
     return (
         <div className="h-screen items-center flex justify-center ">
             <div className="bg-[#76BBFF] p-4 rounded">
