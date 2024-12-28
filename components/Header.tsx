@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Header = ({remaining, limit}: {remaining: number, limit: number}) => {
-    console.log(remaining)
+
     return (
         <header className="flex justify-between items-center">
             <span className="text-white font-bold text-[20px]">ProfileHub</span>

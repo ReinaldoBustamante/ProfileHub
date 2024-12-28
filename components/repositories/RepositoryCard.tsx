@@ -6,7 +6,6 @@ import { IoLink, IoLogoGithub } from "react-icons/io5";
 
 export const RepositoryCard = ({ repository }: { repository: RepositoryType }) => {
     const color = getColors([repository.language ?? ''])
-    console.log(repository.url)
     return (
         <li className='p-4 w-full border rounded shadow-md flex flex-col gap-2'>
             <h2 className='text-xl font-semibold text-[#175B96]'>{repository?.name}</h2>
