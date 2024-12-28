@@ -31,18 +31,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                 <Header remaining={rateLimit.remaining} limit={rateLimit.limit} />
                 <section className='flex flex-col gap-4'>
                     <Profile url={profile.avatar_url} name={profile.name} login={profile.login} location={profile.location} />
-                    <ProfileStats publicRepos={profile.public_repos} followers={profile.followers} followings={profile.following} />
-                </section>
-                <section>
-                    <PieChart languages={languages} />
+                    <div className="flex flex-col gap-2 md:flex-row md:justify-center">
+                        <ProfileStats publicRepos={profile.public_repos} followers={profile.followers} followings={profile.following} />
+                        <PieChart languages={languages} />
+                    </div>
                 </section>
                 <section>
                     <Repositories languages={Object.keys(languages)} repos={repos} />
                 </section>
             </main>
-            <footer className='h-12 w-full bg-[#76BBFF] text-white flex items-center justify-center'>
-                <p>Next.js - Tailwind CSS - Chart.js - Github API</p>
-            </footer>
+          
         </div>
     );
 }

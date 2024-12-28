@@ -22,11 +22,11 @@ export const PieChart = ({ languages }: { languages: { [key: string]: number } }
         ],
     };
 
-    return <div className="border rounded p-4 shadow-md flex flex-col gap-4">
+    return <div className="border rounded p-4 shadow-md flex flex-col gap-1 bg-white md:w-[300px]">
         <div className="flex items-end gap-1">
             <h2 className="text-2xl text-[#175B96] font-semibold">Top Languages</h2>
             <span className="text-[12px] bg-[#76BBFF] px-2 text-white mb-1 ">Last 30 projects</span>
         </div>
-        <Pie data={data} />
+        <Pie data={data} width={300} height={300}/>
     </div>
 }
