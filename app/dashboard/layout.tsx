@@ -18,7 +18,7 @@ export default function DashboardLayout({
                     className='absolute z-1'
                 />
             </div>
-            <div className="relative z-2 w-[1024px]">
+            <div className="relative z-2 md:w-[1024px]">
                 {children}
             </div>
             <footer className='h-12 w-full bg-[#76BBFF] text-white flex items-center justify-center font-bold'>
