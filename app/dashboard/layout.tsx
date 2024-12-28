@@ -16,6 +16,7 @@ export default function DashboardLayout({
                     objectFit='cover'
                     objectPosition='top right'
                     className='absolute z-1'
+                    priority
                 />
             </div>
             <div className="relative z-2 md:w-[1024px]">
