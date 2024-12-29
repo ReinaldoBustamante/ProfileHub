@@ -16,7 +16,6 @@ interface DashboardPageProps {
     searchParams: Promise<{ username: string }>
 }
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
-
     const { username } = await searchParams
     const rateLimit = await getLimit()
     if(rateLimit.remaining === 0) throw new Error('Too many attempts, please try again later')
@@ -25,7 +24,6 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     const languages = await getLanguages(username)
     const repos: RepositoryType[] = await getRepositories(username)
     
-
     return (
         <div className="flex flex-col">
             <main className='flex flex-col gap-4 py-4 px-8 '>

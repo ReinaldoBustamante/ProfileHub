@@ -18,7 +18,7 @@ export default function ErrorPage({ error }: ErrorPageProps) {
                     }
                 </h1>
             </div>
-            <Link href={'/'} className="p-2 bg-blue-400 text-white rounded">Go back</Link>
+            <Link href={'/'} className="p-2 bg-blue-400 text-white rounded ">Go back</Link>
         </div>
     );
 }
